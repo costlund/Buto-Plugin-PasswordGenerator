@@ -1,0 +1,25 @@
+settings:
+  path: '1/innerHTML/1/innerHTML'
+content:
+  -
+    type: text
+    text: '<!DOCTYPE html>'
+  -
+    type: html
+    attribute:
+      lang: en
+    innerHTML:
+      -
+        type: head
+        innerHTML:
+          -
+            type: widget
+            data:
+              plugin: 'theme/include'
+              method: include
+              data:
+                bootswatch:
+                  theme: Cerulean          
+      -
+        type: body
+        innerHTML: 'body...'

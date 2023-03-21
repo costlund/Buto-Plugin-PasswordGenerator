@@ -1,0 +1,11 @@
+settings:
+  path: 'container/innerHTML'
+content:
+  container:
+    type: div
+    attribute:
+      class: 'container-fluid'
+      style: 'min-height:300px;'
+    innerHTML:
+    
+    

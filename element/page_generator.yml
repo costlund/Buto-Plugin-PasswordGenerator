@@ -1,0 +1,17 @@
+settings:
+  layout:
+    - html
+    - main
+  title: Password Generator
+content:
+  -
+    type: widget
+    data:
+      plugin: wf/table
+      method: render_one
+      data:
+        key_is_missing_alert: true
+        i18n: false
+        rs: rs:data
+        class:
+          table: table-sm table-striped

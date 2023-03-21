@@ -1,0 +1,22 @@
+version: 1.0.0
+history:
+  1.0.0:
+    date: '2023-03-21'
+    title: 'First version'
+    description: 'First version. Manifest created.'
+plugin:
+  -
+    name: wf/yml
+    version: 1.5.1
+sys:
+  -
+    name: mercury
+    version:
+      - 2.85.0
+php:
+  version:
+    - 8.0.8
+author: null
+links: null
+description: ''
+third_part_software: null
