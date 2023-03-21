@@ -11,9 +11,14 @@ class PluginPasswordGenerator{
      * 
      */
     $rs = new PluginWfArray();
-    $rs->set('length_32_all',       $this->random_str(32));
-    $rs->set('length_64_all',       $this->random_str());
-    $rs->set('length_8_lower',  $this->random_str(8, 'abcdefghijklmnopqrstuvwxyz'));
+    $rs->set('length_8_l',           $this->random_str(8, 'l'));
+    $rs->set('length_8_u',           $this->random_str(8, 'u'));
+    $rs->set('length_8_d',           $this->random_str(8, 'd'));
+    $rs->set('length_8_s',           $this->random_str(8, 's'));
+    $rs->set('length_8_luds',       $this->random_str(8, 'luds'));
+    $rs->set('length_16_luds',       $this->random_str(12, 'luds'));
+    $rs->set('length_32_luds',       $this->random_str(32, 'luds'));
+    $rs->set('length_64_luds',       $this->random_str(64, 'luds'));
     /**
      * 
      */
@@ -22,9 +27,19 @@ class PluginPasswordGenerator{
     $page = wfDocument::insertAdminLayout($this->settings, 1, $page);
     wfDocument::mergeLayout($page->get());
   }
-  function random_str($length = 64, $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'){
-    if ($length < 1) {
-        throw new \RangeException("Length must be a positive integer");
+  private function random_str($length = 64, $keys = 'luds'){
+    $keyspace = '';
+    if(strstr($keys, 'l')){
+      $keyspace .= 'abcdefghijklmnopqrstuvwxyz';
+    }
+    if(strstr($keys, 'u')){
+      $keyspace .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    }
+    if(strstr($keys, 'd')){
+      $keyspace .= '0123456789';
+    }
+    if(strstr($keys, 's')){
+      $keyspace .= "!()@";
     }
     $pieces = [];
     $max = mb_strlen($keyspace, '8bit') - 1;
